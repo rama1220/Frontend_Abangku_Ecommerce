@@ -1,0 +1,366 @@
+@media screen and (max-width: 884px) {
+  .nav-logo p {
+    display: none;
+  }
+  .nav-menu h5 {
+    font-size: 0.8rem;
+    /* width: 75px; */
+  }
+  .nav-menu {
+    gap: 25px;
+    width: 100%;
+  }
+  .form-input {
+    max-width: 250px;
+  }
+  .input {
+    width: 60%;
+  }
+  .cloth-item {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .info-sec2 {
+    max-width: 750px;
+  }
+  .box-style img {
+    width: 650px;
+    height: 650px;
+  }
+  .cloth-item-next {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .social-media svg {
+    width: 20px;
+    height: 20px;
+  }
+  .login-container {
+    margin-left: 20px;
+  }
+  .footer-last p {
+    font-size: 0.7rem;
+  }
+  .banner img {
+    width: 100%;
+  }
+  .cloth-item-cetegory {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 60%;
+    padding-left: 0;
+    margin-left: -200px;
+  }
+  .category {
+    padding-left: 30px;
+    padding-top: 100px;
+  }
+  .box-category {
+    width: 150px;
+  }
+  .cloth-category {
+    width: 75%;
+  }
+  .cloth-category h2 {
+    margin-left: -50px;
+  }
+  .path-product {
+    max-width: 750px;
+    margin-left: 30px;
+  }
+  .detail-container {
+    width: 750px;
+    margin-left: 30px;
+  }
+  .detail-left {
+    width: 350px;
+  }
+  .detail-image img {
+    width: 320px;
+  }
+  .detail-left.zoomed {
+    transform: translate(-50%, -50%);
+  }
+  .cartItems {
+    margin: 100px 20px;
+  }
+  .cartItems-down {
+    display: flex;
+    margin: 100px 0px;
+    width: 750px;
+  }
+  .cartItems-promobox {
+    width: 240px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .cartItems-promobox button {
+    margin-top: 5px;
+    width: 100%;
+  }
+  .cartItems-promo-code p {
+    width: 240px;
+  }
+  .cartItems-promo-code input {
+    padding-left: 10px;
+  }
+  .side-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .About-page {
+    max-width: 750px;
+  }
+  .containe-form {
+    max-width: 700px;
+  }
+  .login-container input {
+    width: 90%;
+  }
+  .login-container button {
+    width: 90%;
+  }
+  .table-invoice {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .nav-logo p {
+    display: block;
+  }
+  .cloth-item {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .item {
+    width: 10rem;
+  }
+  .item img {
+    width: 10rem;
+  }
+  .box-style img {
+    width: 350px;
+    height: 350px;
+  }
+  .info-sec2 {
+    margin-top: 250px;
+    max-width: 400px;
+
+  }
+  .item-next img {
+    width: 350px;
+  }
+  .cloth-item-next {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 50px;
+    gap: 30px;
+  }
+  .ft-section {
+    max-width: 400px;
+    justify-content: start;
+  }
+  .abt-title,
+  .abt-text,
+  .abt-footer {
+    display: none;
+  }
+  .main-container {
+    flex-direction: column;
+  }
+  .category {
+    width: 100%;
+    padding-top: 0;
+  }
+  .box-category {
+    width: 90%;
+  }
+  .cloth-category {
+    width: 95%;
+  }
+  .cloth-item-cetegory {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 30%;
+  }
+  .item-category {
+    max-width: 10rem;
+  }
+  .item-category img {
+    width: 100%;
+  }
+  .dropdown {
+    position: absolute;
+    top: 750px;
+    right: 40px;
+  }
+  .About-page {
+    max-width: 370px;
+  }
+  .side-page img {
+    width: 370px;
+  }
+  .detail-container {
+    flex-direction: column;
+    width: 750px;
+    margin-left: 30px;
+  }
+  .detail-right h2 {
+    margin-top: 30px;
+  }
+  .detail-left {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+  }
+  .notFound-page {
+    max-width: 450px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .side-right-page {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .side-right-page p {
+    display: none;
+  }
+  .side-right-page .nav-link button {
+    margin-top: -10px;
+  }
+  .burger {
+    position: relative;
+    top: 12px;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    z-index: 999;
+  }
+
+  .burger .line-1,
+  .line-2,
+  .line-3 {
+    width: 28px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+  }
+  .nav-right {
+    position: fixed;
+    width: 70%;
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    background-color: #a62c27;
+    z-index: 9;
+    transform: translateX(100%);
+    transition: 0.4s ease-in-out;
+  }
+
+  .nav-right ul {
+    height: 100vh;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .input {
+    width: 160px;
+  }
+  .nav-active {
+    transform: translateX(0);
+  }
+  .toggle-burger .line-1 {
+    transform: rotate(-45deg) translate(-5px, 7px);
+    transition: 0.2s ease-in-out;
+  }
+  .toggle-burger .line-2 {
+    opacity: 0;
+  }
+  .toggle-burger .line-3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+    transition: 0.2s ease-in-out;
+  }
+  .nav-login-cart {
+    gap: 25px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .ft-right h3,
+  .ft-right p {
+    display: none;
+  }
+  .containe-form {
+    max-width: 350px;
+    flex-direction: column;
+  }
+  .image-container {
+    width: 100%;
+  }
+  .login-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+  }
+  #form-login,
+  #register {
+    padding-left: 30px;
+  }
+
+  .cartItems {
+    margin-left: 20px;
+  }
+  .cartItems-down {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+  }
+  .cartItems-total {
+    width: 50%;
+  }
+  .container-bank {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .container-bank img {
+    width: 130px;
+  }
+
+  .boxContainer-checkout {
+    width: 340px;
+  }
+  .boxContainer-checkout select {
+    width: 130px;
+  }
+  .table-invoice {
+    width: 390px;
+  }
+  .select-option input {
+    width: 130px;
+  }
+  .modal-edit-item {
+    width: 330px;
+  }
+  .btn-size {
+    display: flex;
+    justify-content: center;
+  }
+  .Location {
+    width: 83%;
+  }
+}
