@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
   const [order, setOrder] = useState("");
   const [or, setOr] = useState("");
   const [as, setAd] = useState("");
-  const endpoint = "http://localhost:5000";
+  const endpoint = "https://backend-abangku-ecommerce.onrender.com";
 
   useEffect(() => {
     if (localStorage.getItem("item", term) !== "null") {
@@ -164,7 +164,7 @@ const AuthProvider = ({ children }) => {
 
       setOrder(response.data.order?.id);
       await Pay(response.data.order?.id);
-      
+
       localStorage.setItem("address", location);
       localStorage.setItem("invoice", response.data.order?.invoice);
       localStorage.setItem("total", response.data.order?.total);
@@ -239,7 +239,7 @@ const AuthProvider = ({ children }) => {
 
   const GetProvinces = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/provinces");
+      const response = await axios.get(`${endpoint}/provinces`);
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -250,7 +250,7 @@ const AuthProvider = ({ children }) => {
 
   const GetOrigin = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/cities/${id}`);
+      const response = await axios.get(`${endpoint}/cities/${id}`);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -260,7 +260,7 @@ const AuthProvider = ({ children }) => {
 
   const GetDestination = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/cities/${id}`);
+      const response = await axios.get(`${endpoint}/cities/${id}`);
       return response.data;
     } catch (error) {
       console.log(error);
