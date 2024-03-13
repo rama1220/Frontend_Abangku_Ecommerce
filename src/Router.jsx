@@ -88,7 +88,7 @@ const Router = createBrowserRouter([
       { path: "detail/:id", Component: DetailProduct, children: [{ path: "detail/:id", Component: Relate }] },
       { path: "men", Component: Men, children: [{ path: "men/detail/:id", Component: Relate }] },
       { path: "women", Component: Women, children: [{ path: "women/detail/:id", Component: Relate }] },
-      { path: "kid", Component: Kids, children: [{ path: "kid/detail/:id", Component: Relate }] },
+      { path: "kids", Component: Kids, children: [{ path: "kid/detail/:id", Component: Relate }] },
       { path: "search", Component: Search, children: [{ path: "search/detail/:id", Component: Relate }] },
       { path: "newcollection", Component: NewCollection, children: [{ path: "newcollection/detail/:id", Component: Relate }] },
       { path: "bestseller", Component: BestSeller, children: [{ path: "bestseller/detail/:id", Component: Relate }] },
