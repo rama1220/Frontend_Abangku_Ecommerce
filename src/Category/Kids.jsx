@@ -5,7 +5,7 @@ export default function Kids() {
   const { Product,filter } = useAuth();
   const [data, setData] = useState([]);
   const totalProduct = data.reduce((acc, product) => {
-    if (product.Category.name === "Kid") {
+    if (product.Category.name === "Kids") {
       return acc + 1;
     } else {
       return acc;
@@ -43,7 +43,7 @@ export default function Kids() {
         </h5>
         <div className="cloth-item-cetegory">
           {data.map((item, index) => {
-            if (item.Category.name === "Kid") {
+            if (item.Category.name === "Kids") {
               return <ItemCategory key={index} id={item.id} name={item.name} image={item.ProductImage[0].image_url} rating={item.rating} new_price={item.price} description={item.description} />;
             }
           })}
