@@ -76,7 +76,7 @@ export default function Sidebar() {
                   setPageBanner(6);
                 }}
               >
-                <Link to="kid" className="nav-link">
+                <Link to="Kids" className="nav-link">
                   <button>Kid</button>
                 </Link>
               </li>
