@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
   const [order, setOrder] = useState("");
   const [or, setOr] = useState("");
   const [as, setAd] = useState("");
-  const endpoint = "https://backend-abangku-ecommerce.onrender.com";
+  const endpoint = "http://localhost:5000";
 
   useEffect(() => {
     if (localStorage.getItem("item", term) !== "null") {
