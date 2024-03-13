@@ -43,7 +43,7 @@ export default function Kids() {
         </h5>
         <div className="cloth-item-cetegory">
           {data.map((item, index) => {
-            if (item.Category.name === "Kids") {
+            if (item.Category.name === "Kid") {
               return <ItemCategory key={index} id={item.id} name={item.name} image={item.ProductImage[0].image_url} rating={item.rating} new_price={item.price} description={item.description} />;
             }
           })}
