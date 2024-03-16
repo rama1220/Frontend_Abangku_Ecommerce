@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Scrollbar } from "../../helper/Scrollbar";
 import ModalSucces from "../ModalBox/ModalSucces";
 import formatRupiah from "../../helper/Rupiah";
+import Skeleton from "../Skeleton/Skeleton";
 
 export default function DetailProduct() {
   const { GetProductbyId, isAuthenticated, addToCart } = useAuth();
@@ -48,6 +49,7 @@ export default function DetailProduct() {
       return () => clearTimeout(timer);
     }
   }, [message]);
+
   const handleAddToCart = () => {
     if (auth === null) {
       navigate("/login");
@@ -65,6 +67,7 @@ export default function DetailProduct() {
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };
+
   const handleDecrease = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -72,13 +75,18 @@ export default function DetailProduct() {
       setQuantity(1);
     }
   };
+
   return (
     <>
-      {product && (
+      {!product ? (
+        <div className="detail-container">
+          <Skeleton />
+        </div>
+      ) : (
         <>
           <div className="path-product">
             <h5>
-              <Link to="/" className="nav-link-path ">
+              <Link to="/" className="nav-link-path">
                 Shop
               </Link>
               {" > "}
@@ -112,7 +120,6 @@ export default function DetailProduct() {
                   </button>
                 ))}
               </div>
-
               <div>
                 <h4>Quantity</h4>
                 <div className="quantity-container">
@@ -122,7 +129,6 @@ export default function DetailProduct() {
                     </svg>
                   </button>
                   <div className="quantity">{quantity}</div>
-
                   <button className="btn-action-cart" onClick={handleIncrease}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
