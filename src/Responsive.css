@@ -224,7 +224,7 @@
     padding-right: 10px;
   }
   .cloth-item-cetegory {
-    margin-top: 90px;
+    margin-top: 7rem;
     gap: 15px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -240,7 +240,7 @@
   .dropdown {
     position: absolute;
     top: 750px;
-    right: 40px;
+    right: 1.5rem;
   }
   .About-page {
     max-width: 370px;
