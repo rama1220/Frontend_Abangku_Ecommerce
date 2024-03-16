@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import ItemCategory from "../Components/Item/ItemCategory";
 import { useAuth } from "../Context/AuthContext";
+import SkeletonMedium from "../Components/Skeleton/SkeletonMedium";
 export default function NewCollection() {
   const { Product, filter } = useAuth();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const newCollect = data.slice(0, 27).sort((a, b) => b.updated_at - a.updated_at);
 
@@ -27,11 +29,19 @@ export default function NewCollection() {
           sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
         }
         setData(sortedProducts);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }, [Product, filter]);
+  if (loading) {
+    return (
+      <div className="item-category">
+        <SkeletonMedium />
+      </div>
+    );
+  }
   return (
     <>
       <div className="cloth-category">
