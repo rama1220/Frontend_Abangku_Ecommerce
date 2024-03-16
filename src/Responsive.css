@@ -218,8 +218,10 @@
     width: 90%;
   }
   .cloth-category {
-    width: 95%;
+    width: 100%;
     font-size: 0.8rem;
+    padding-left: 2px;
+    padding-right: 10px;
   }
   .cloth-item-cetegory {
     margin-top: 90px;
