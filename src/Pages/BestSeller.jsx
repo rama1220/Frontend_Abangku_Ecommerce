@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import ItemCategory from "../Components/Item/ItemCategory";
 import { useAuth } from "../Context/AuthContext";
+import SkeletonMedium from "../Components/Skeleton/SkeletonMedium";
 
 export default function BestSeller() {
   const { Product, filter } = useAuth();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   const best = data.slice(0, 15).sort((a, b) => b.rating - a.rating);
   const totalProduct = best.reduce((acc) => {
@@ -27,11 +30,19 @@ export default function BestSeller() {
           sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
         }
         setData(sortedProducts);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }, [Product, filter]);
+    if (loading) {
+      return (
+        <div className="item-category">
+          <SkeletonMedium />
+        </div>
+      );
+    }
 
   return (
     <>

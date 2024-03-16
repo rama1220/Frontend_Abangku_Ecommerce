@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import ItemCategory from "../Components/Item/ItemCategory";
 import { useAuth } from "../Context/AuthContext";
+import SkeletonMedium from "../Components/Skeleton/SkeletonMedium";
 export default function Allproduct() {
   const { Product, filter } = useAuth();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
 
   const totalProduct = data.reduce((acc) => {
     return acc + 1;
@@ -25,11 +28,21 @@ export default function Allproduct() {
           sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
         }
         setData(sortedProducts);
+        setLoading(false);
+        
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }, [Product, filter]);
+
+  if(loading){
+    return (
+      <div className="item-category">
+        <SkeletonMedium />
+      </div>
+    );
+  }
 
   return (
     <>
