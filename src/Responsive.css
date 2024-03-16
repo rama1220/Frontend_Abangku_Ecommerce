@@ -388,6 +388,16 @@
   .container-bank img {
     width: 130px;
   }
+  .boxContainer {
+    width: 320px;
+  }
+  .boxContainer h2 {
+    font-size: 2rem;
+  }
+  .successContainer {
+    width: 320px;
+    text-align: center;
+  }
 
   .boxContainer-checkout {
     width: 340px;
