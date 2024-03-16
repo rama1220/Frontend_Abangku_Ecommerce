@@ -125,6 +125,11 @@
   .table-invoice {
     width: 700px;
   }
+  .result-title {
+    width: 650px;
+    justify-content: start;
+    padding-left: 35px;
+  }
 }
 
 @media screen and (max-width: 430px) {
@@ -148,7 +153,6 @@
   .info-sec2 {
     margin-top: 250px;
     max-width: 400px;
-
   }
   .item-next img {
     width: 350px;
@@ -362,5 +366,10 @@
   }
   .Location {
     width: 83%;
+  }
+  .result-title {
+    width: 400px;
+    justify-content: start;
+    padding-left: 30px;
   }
 }

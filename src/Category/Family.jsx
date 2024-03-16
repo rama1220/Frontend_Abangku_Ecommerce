@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ItemCategory from "../Components/Item/ItemCategory";
 import { useAuth } from "../Context/AuthContext";
 export default function Family() {
-  const { Product,filter } = useAuth();
+  const { Product, filter } = useAuth();
   const [data, setData] = useState([]);
   const totalProduct = data.reduce((acc, product) => {
     if (product.Category.name === "Family") {
@@ -38,9 +38,11 @@ export default function Family() {
     <>
       <div className="cloth-category">
         <h2>Family Clothing Products</h2>
-        <h5 className="showing">
-          <span>Showing </span> 1 -{totalProduct} of the products family
-        </h5>
+        <div className="result-title">
+          <h5 className="showing">
+            <span>Showing </span> 1 -{totalProduct} of the products family
+          </h5>
+        </div>
         <div className="cloth-item-cetegory">
           {data.map((item, index) => {
             if (item.Category.name === "Family") {

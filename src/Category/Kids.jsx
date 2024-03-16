@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import ItemCategory from "../Components/Item/ItemCategory";
 import { useAuth } from "../Context/AuthContext";
 export default function Kids() {
-  const { Product,filter } = useAuth();
+  const { Product, filter } = useAuth();
   const [data, setData] = useState([]);
   const totalProduct = data.reduce((acc, product) => {
-    if (product.Category.name === "Kids") {
+    if (product.Category.name === "Kid") {
       return acc + 1;
     } else {
       return acc;

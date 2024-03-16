@@ -293,12 +293,19 @@ nav {
   transition: 0.6s;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
-h5.showing {
+.result-title {
   width: 1000px;
-  margin: 10px auto 0;
-  color: #7a7a7a;
+  height: 30px;
+  display: flex;
+  justify-content: start;
   padding-left: 50px;
 }
+/* h5.showing { */
+/* max-width: 1000px; */
+/* display: flex; */
+/* justify-content: start; */
+/* color: #7a7a7a; */
+/* } */
 .showing span {
   font-size: 15px;
   font-weight: bolder;
