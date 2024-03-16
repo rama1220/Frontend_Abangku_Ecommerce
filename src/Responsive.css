@@ -164,7 +164,7 @@
     cursor: pointer;
   }
   .detail-right {
-    width: 78%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -252,7 +252,7 @@
   }
   .detail-container {
     flex-direction: column;
-    width: 750px;
+    max-width: 750px;
     margin-left: 30px;
   }
   .detail-right h2 {
