@@ -219,6 +219,7 @@
   }
   .cloth-category {
     width: 95%;
+    font-size: 0.8rem;
   }
   .cloth-item-cetegory {
     margin-top: 90px;
@@ -405,6 +406,6 @@
   .result-title {
     width: 400px;
     justify-content: start;
-    padding-left: 30px;
+    padding-left: 3.5rem;
   }
 }
