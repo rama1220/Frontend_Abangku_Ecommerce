@@ -572,7 +572,7 @@ next .cloth-container h2 {
 
 /* DETAIL */
 .detail-container {
-  width: 1000px;
+  max-width: 1000px;
   margin: 40px auto;
   display: flex;
   position: relative;
