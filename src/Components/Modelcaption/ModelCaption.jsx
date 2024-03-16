@@ -18,7 +18,7 @@ export default function ModelCaption() {
           <Link to="/women" onClick={Scrollbar}>
             <img src={women} alt="" />
           </Link>
-          <Link to="/kid" onClick={Scrollbar}>
+          <Link to="/kids" onClick={Scrollbar}>
             <img src={kids} alt="" />
           </Link>
           <Link to="/family" onClick={Scrollbar}>
