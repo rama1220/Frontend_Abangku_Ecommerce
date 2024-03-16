@@ -222,7 +222,6 @@
     font-size: 0.8rem;
   }
   .cloth-item-cetegory {
-    /* padding-left: 0.3rem; */
     margin-top: 90px;
     gap: 15px;
     display: grid;
@@ -406,8 +405,8 @@
     width: 83%;
   }
   .result-title {
-    width: 400px;
+    width: 100%;
     justify-content: start;
-    padding-left: 3.5rem;
+    padding-left: 1.5rem;
   }
 }
