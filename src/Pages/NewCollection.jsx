@@ -36,7 +36,7 @@ export default function NewCollection() {
     <>
       <div className="cloth-category">
         <h2>NEW COLLECTIONS</h2>
-        <div className="result-gittitle">
+        <div className="result-title">
           <h5 className="showing">
             <span>Showing </span> 1 -{totalProduct} of the products new collection
           </h5>
