@@ -371,12 +371,14 @@
     margin-left: 20px;
   }
   .cartItems-down {
+    max-width: 300px;
     display: flex;
     flex-direction: column-reverse;
     gap: 50px;
   }
   .cartItems-total {
-    width: 50%;
+    width: 100%;
+    margin-right: 0;
   }
   .container-bank {
     width: 100%;
