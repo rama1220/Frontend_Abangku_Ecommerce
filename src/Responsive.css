@@ -140,6 +140,10 @@
   }
   .detail-image {
     width: 100%;
+    display: flex;
+  }
+  .detail-image img {
+    width: 100%;
   }
   .detail-left.zoomed {
     position: fixed;
@@ -151,18 +155,16 @@
     max-height: 90%;
   }
   .detail-left.zoomed .detail-image img {
-    width: 300px;
+    width: 250px;
     height: 100%;
   }
   .detail-left {
-    display: flex;
-    justify-content: center;
-    width: 90%;
+    width: 100%;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
   .detail-right {
-    width: 100%;
+    width: 78%;
     display: flex;
     flex-direction: column;
     gap: 20px;
