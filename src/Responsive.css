@@ -222,7 +222,7 @@
     font-size: 0.8rem;
   }
   .cloth-item-cetegory {
-    padding-left: 0.3rem;
+    /* padding-left: 0.3rem; */
     margin-top: 90px;
     gap: 15px;
     display: grid;
