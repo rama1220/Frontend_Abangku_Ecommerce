@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import ItemCategory from "../Components/Item/ItemCategory";
 import { useAuth } from "../Context/AuthContext";
 export default function NewCollection() {
-  const { Product,filter } = useAuth();
+  const { Product, filter } = useAuth();
   const [data, setData] = useState([]);
 
-const newCollect = data.slice(0, 27).sort((a, b) => b.updated_at - a.updated_at);
+  const newCollect = data.slice(0, 27).sort((a, b) => b.updated_at - a.updated_at);
 
   const totalProduct = newCollect.reduce((acc) => {
     return acc + 1;
@@ -36,12 +36,14 @@ const newCollect = data.slice(0, 27).sort((a, b) => b.updated_at - a.updated_at)
     <>
       <div className="cloth-category">
         <h2>NEW COLLECTIONS</h2>
-        <h5 className="showing">
-          <span>Showing </span> 1 -{totalProduct} of the products new collection
-        </h5>
+        <div className="result-gittitle">
+          <h5 className="showing">
+            <span>Showing </span> 1 -{totalProduct} of the products new collection
+          </h5>
+        </div>
         <div className="cloth-item-cetegory">
           {newCollect.map((item, index) => {
-             return <ItemCategory key={index} id={item.id} name={item.name} image={item.ProductImage[0].image_url} rating={item.rating} new_price={item.price} description={item.description} />;
+            return <ItemCategory key={index} id={item.id} name={item.name} image={item.ProductImage[0].image_url} rating={item.rating} new_price={item.price} description={item.description} />;
           })}
         </div>
       </div>

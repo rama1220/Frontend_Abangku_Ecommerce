@@ -29,15 +29,17 @@ export default function Allproduct() {
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, [Product, filter]); 
+  }, [Product, filter]);
 
   return (
     <>
       <div className="cloth-category">
         <h2>All Clothing Products</h2>
-        <h5 className="showing">
-          <span>Showing </span> 1 -{totalProduct} of the products
-        </h5>
+        <div className="result-title">
+          <h5 className="showing">
+            <span>Showing </span> 1 -{totalProduct} of the product
+          </h5>
+        </div>
         <div className="cloth-item-cetegory">
           {data.map((item, index) => {
             return <ItemCategory key={index} id={item.id} name={item.name} image={item.ProductImage[0].image_url} rating={item.rating} new_price={item.price} description={item.description} />;
