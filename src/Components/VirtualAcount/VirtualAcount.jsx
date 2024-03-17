@@ -59,7 +59,7 @@ export default function VirtualAccount() {
               <tr>
                 <th>Invoice</th>
                 <th></th>
-                <th>Action</th>
+                <th className="action">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -71,14 +71,17 @@ export default function VirtualAccount() {
                   <p>Shipment: IDR {Datashipment}</p>
                   <p>Total Payment: IDR {formatRupiah(Total)}</p>
                 </td>
-                <td>
-                  <button className="btn-payment" onClick={handlePayment}>
+                <td className="action">
+                  <button className="btn-pay" onClick={handlePayment}>
                     PAYMENT
                   </button>
                 </td>
               </tr>
             </tbody>
           </table>
+          <button className="btn-payment" onClick={handlePayment}>
+            PAYMENT
+          </button>
         </div>
       </div>
       <InformationSect />

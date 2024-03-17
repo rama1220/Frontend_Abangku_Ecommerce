@@ -415,7 +415,29 @@
     width: 130px;
   }
   .table-invoice {
-    width: 390px;
+    width: 330px;
+  }
+  .action {
+    display: none;
+  }
+  .btn-pay {
+    display: none;
+  }
+  .btn-payment {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #a62c27;
+    border-radius: 1px solid #a62c27;
+    color: white;
+    cursor: pointer;
+    display: block;
+  }
+  .btn-payment:hover {
+    background-color: #ea1d1d;
+  }
+  .info-sec2 {
+    margin-top: 10rem;
   }
   .select-option input {
     width: 130px;
