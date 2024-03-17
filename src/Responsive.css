@@ -130,7 +130,10 @@
     justify-content: start;
     padding-left: 35px;
   }
-  .card2 {
+  /* .card2 { */
+    /* width: 35rem; */
+  /* } */
+  .item-category .card2 {
     width: 35rem;
   }
   .card {
@@ -481,7 +484,8 @@
       background-position: -100% 0;
     }
   }
-  .card2 {
+
+  .item-category .card2 {
     width: 21rem;
     margin-top: 17rem;
   }
