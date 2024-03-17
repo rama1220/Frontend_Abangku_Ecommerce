@@ -4,6 +4,7 @@ import { Scrollbar } from "../../helper/Scrollbar";
 import { useAuth } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import formatRupiah from "../../helper/Rupiah";
+import SkeletonList from "../Skeleton/SkeletonList";
 
 export default function CartItems() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,16 +16,14 @@ export default function CartItems() {
   const [sizesEvent, setSizesEvent] = useState("");
   const [productId, setProductId] = useState(0);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };
+
   const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    } else {
-      setQuantity(1);
-    }
+    setQuantity(Math.max(quantity - 1, 1));
   };
 
   const handleIdSize = (sizeId) => {
@@ -46,16 +45,13 @@ export default function CartItems() {
   };
 
   const handleSave = () => {
-    if (data.length > 0 && quantity !== "" && sizesEvent && productId !== 0 && modalProduct.id !== null) {
-      const fetchData = async () => {
-        try {
-          await PutProduct(quantity, sizesEvent, productId, modalProduct.id);
-        } catch (error) {
-          console.error("Error:", error);
-        }
-      };
-      fetchData();
-      setIsModalOpen(false);
+    if (quantity > 0 && sizesEvent !== "" && productId !== 0 && modalProduct && modalProduct.id !== null) {
+      try {
+        PutProduct(quantity, sizesEvent, productId, modalProduct.id);
+        setIsModalOpen(false);
+      } catch (error) {
+        console.error("Error:", error);
+      }
     } else {
       console.error("Error: Incomplete data");
     }
@@ -66,12 +62,13 @@ export default function CartItems() {
       try {
         const cartData = await getCart();
         setData(cartData);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching cart data:", error);
       }
     };
     fetchData();
-  }, [getCart, data]);
+  }, [getCart]);
 
   useEffect(() => {
     const fetchProductById = async () => {
@@ -103,12 +100,6 @@ export default function CartItems() {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    if (modalProduct && modalProduct.quantity) {
-      setQuantity(modalProduct.quantity);
-    }
-  }, [modalProduct]);
-
   return (
     <div className="cartItems">
       <div className="cartItems-format-main">
@@ -124,41 +115,56 @@ export default function CartItems() {
             </tr>
           </thead>
           <tbody>
-            {data.map((item, index) => (
-              <tr key={index}>
-                <td>
-                  <img src={item.Product.ProductImage[0].image_url} alt={item.name} className="carticon-product-icon" />
-                </td>
-                <td className="product-name">
-                  {item.Product.name} <p>IDR {formatRupiah(item.Product.price)}</p>
-                  <p>Size: {item.Size.name} </p>
-                </td>
-                <td>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="edit-modal"
-                    viewBox="0 0 16 16"
-                    onClick={() => {
-                      openModal(item);
-                      handleIdSize(item.size_id);
-                    }}
-                  >
-                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                    <path d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                  </svg>
-                </td>
-                <td>{item.quantity}</td>
-                <td>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16" className="edit-modal" onClick={() => handleDelete(item.id)}>
-                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                  </svg>
-                </td>
-              </tr>
-            ))}
+            {loading ? (
+              <>
+                <tr>
+                  <td colSpan="5">
+                    <SkeletonList />
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan="5">
+                    <SkeletonList />
+                  </td>
+                </tr>
+              </>
+            ) : (
+              data.map((item, index) => (
+                <tr key={index}>
+                  <td>
+                    <img src={item.Product.ProductImage[0].image_url} alt={item.name} className="carticon-product-icon" />
+                  </td>
+                  <td className="product-name">
+                    {item.Product.name} <p>IDR {formatRupiah(item.Product.price)}</p>
+                    <p>Size: {item.Size.name} </p>
+                  </td>
+                  <td>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="edit-modal"
+                      viewBox="0 0 16 16"
+                      onClick={() => {
+                        openModal(item);
+                        handleIdSize(item.size_id);
+                      }}
+                    >
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                      <path d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                    </svg>
+                  </td>
+                  <td>{item.quantity}</td>
+                  <td>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16" className="edit-modal" onClick={() => handleDelete(item.id)}>
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                    </svg>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
@@ -177,24 +183,14 @@ export default function CartItems() {
                 ))}
             </div>
             <div className="modal-button-container">
-              <button
-                onClick={() => {
-                  handleDecrease();
-                }}
-                className="btn-action-cart"
-              >
+              <button onClick={handleDecrease} className="btn-action-cart">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8" />
                 </svg>
               </button>
               <p className="p-quantity">Quantity:</p>
               <input type="number" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} className="input-action" />
-              <button
-                onClick={() => {
-                  handleIncrease();
-                }}
-                className="btn-action-cart"
-              >
+              <button onClick={handleIncrease} className="btn-action-cart">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-.5 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
                 </svg>
@@ -204,7 +200,7 @@ export default function CartItems() {
               <button onClick={closeModal} className="btn-action">
                 Close
               </button>
-              <button onClick={() => handleSave(quantity, sizesEvent, productId, modalProduct.id)} className="btn-action">
+              <button onClick={handleSave} className="btn-action">
                 Save
               </button>
             </div>

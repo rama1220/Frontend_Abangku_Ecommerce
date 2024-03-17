@@ -3,6 +3,7 @@ import { Scrollbar } from "../../helper/Scrollbar";
 import { useAuth } from "../../Context/AuthContext";
 import { Link } from "react-router-dom";
 import formatRupiah from "../../helper/Rupiah";
+import SkeletonList from "../Skeleton/SkeletonList";
 export default function Checkout() {
   const [promo, setPromo] = useState("");
   const [discount, setDiscount] = useState(0);
@@ -17,6 +18,7 @@ export default function Checkout() {
   const [destination, setDestination] = useState("");
   const [dataDestination, setDataDestination] = useState([]);
   const [location, setLocation] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const [resultCityDestination, setResultCityDestination] = useState("");
 
@@ -57,6 +59,7 @@ export default function Checkout() {
       try {
         const cartData = await getCart();
         setData(cartData);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching cart data:", error);
       }
@@ -124,20 +127,35 @@ export default function Checkout() {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => (
-              <tr key={item.id}>
-                <td>
-                  <img src={item.Product.ProductImage[0].image_url} alt={item.name} className="carticon-product-icon" />
-                </td>
-                <td className="product-name">
-                  {item.Product.name}
-                  <p>IDR {formatRupiah(item.Product.price)}</p>
-                  <p>Quantity : {item.quantity}</p>
-                  <p>Size : {item.Size.name}</p>
-                </td>
-                <td>IDR {formatRupiah(item.total_price)}</td>
-              </tr>
-            ))}
+            {loading ? (
+              <>
+                <tr>
+                  <td colSpan="3">
+                    <SkeletonList />
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan="3">
+                    <SkeletonList />
+                  </td>
+                </tr>
+              </>
+            ) : (
+              data.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <img src={item.Product.ProductImage[0].image_url} alt={item.name} className="carticon-product-icon" />
+                  </td>
+                  <td className="product-name">
+                    {item.Product.name}
+                    <p>IDR {formatRupiah(item.Product.price)}</p>
+                    <p>Quantity : {item.quantity}</p>
+                    <p>Size : {item.Size.name}</p>
+                  </td>
+                  <td>IDR {formatRupiah(item.total_price)}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

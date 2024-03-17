@@ -1450,4 +1450,16 @@ input:checked + .slider:before {
   }
 }
 
+.card2 {
+  width: 63rem;
+  padding-left: 50px;
+  text-align: center;
+  border-radius: 0.8rem;
+  background-color: white;
+}
+.card__title2 {
+  height: 25px;
+  margin-bottom: 15px;
+}
+
 /* CLOSE SKELETON */
