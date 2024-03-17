@@ -37,13 +37,13 @@ export default function Family() {
         console.error("Error:", error);
       });
   }, [Product, filter]);
-    if (loading) {
-      return (
-        <div className="item-category">
-          <SkeletonMedium />
-        </div>
-      );
-    }
+  if (loading) {
+    return (
+      <div className="item-skeleton">
+        <SkeletonMedium />
+      </div>
+    );
+  }
 
   return (
     <>

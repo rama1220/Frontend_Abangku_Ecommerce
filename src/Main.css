@@ -1023,6 +1023,9 @@ hr {
 .item-category {
   width: 230px;
 }
+
+
+
 .item-category img {
   width: 230px;
 }
@@ -1454,7 +1457,7 @@ input:checked + .slider:before {
 }
 
 .card2 {
-  width: 63rem;
+  width: 55rem;
   padding-left: 50px;
   text-align: center;
   border-radius: 0.8rem;

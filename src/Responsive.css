@@ -130,7 +130,7 @@
     justify-content: start;
     padding-left: 35px;
   }
-  .item-category .card2 {
+  .item-skeleton .card2 {
     width: 35rem;
   }
   .card {
@@ -482,7 +482,7 @@
     }
   }
 
-  .item-category .card2 {
+  .item-skeleton .card2 {
     width: 21rem;
     margin-top: 17rem;
   }

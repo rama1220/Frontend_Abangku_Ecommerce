@@ -38,7 +38,7 @@ export default function Kids() {
   }, [Product, filter]);
     if (loading) {
       return (
-        <div className="item-category">
+        <div className="item-skeleton">
           <SkeletonMedium />
         </div>
       );
