@@ -139,6 +139,10 @@
   .detail-container .card {
     width: 70rem;
   }
+  .cloth-item-cetegory h2{
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
 }
 
 @media screen and (max-width: 430px) {
@@ -510,5 +514,9 @@
   }
   .detail-container .card {
     width: 20rem;
+  }
+    .cloth-item-cetegory h2{
+    font-size: 1rem;
+
   }
 }
