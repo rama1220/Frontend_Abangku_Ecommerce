@@ -68,7 +68,7 @@ export default function CartItems() {
       }
     };
     fetchData();
-  }, [getCart]);
+  }, [getCart, data]);
 
   useEffect(() => {
     const fetchProductById = async () => {
